@@ -1,0 +1,123 @@
+---
+title: "Cara Baca Holder Distribution"
+description: "Cara menganalisis distribusi holder memecoin — whale detection, dev wallet, dan tanda-tanda sehat vs berbahaya."
+category: "memecoin"
+tags: ["memecoin", "holder", "analisis", "onchain"]
+difficulty: "menengah"
+date: "2026-03-24"
+updated: "2026-03-24"
+author: "Andriyansah"
+featured: false
+draft: false
+order: 3
+---
+
+## Kenapa holder distribution penting?
+
+Holder distribution menunjukkan siapa yang pegang token dan berapa banyak. Ini salah satu indikator paling penting untuk menilai kesehatan sebuah memecoin.
+
+**Token dengan distribusi buruk = bom waktu.** Kapan saja whale bisa dump dan kamu jadi korban.
+
+## Di mana melihat holder distribution?
+
+- **DexScreener** — cek top holders
+- **Birdeye** (Solana) — detail holder analysis
+- **Etherscan / Solscan / BscScan** — block explorer, lihat top holders
+- **Bubblemaps** — visualisasi cluster wallet
+- **Arkham Intelligence** — tracking wallet besar
+
+## Apa yang harus dicek
+
+### 1. Top 10 holders
+
+Lihat berapa persen total supply yang dipegang oleh 10 wallet terbesar.
+
+**Tanda sehat:**
+- Top 10 holders masing-masing < 2-3% supply
+- Tidak ada satu wallet yang dominan
+- Distribusi relatif merata
+
+**Tanda bahaya:**
+- Ada wallet yang hold > 5% supply (selain LP/contract)
+- Top 10 holders menguasai > 30-40% supply
+- Satu wallet hold > 10% → sangat berbahaya
+
+### 2. Dev wallet
+
+Identifikasi wallet developer:
+- Biasanya wallet yang pertama kali receive token setelah deploy
+- Atau wallet yang add liquidity pertama kali
+
+**Cek:**
+- Berapa banyak token yang masih dipegang dev?
+- Apakah dev sudah sell sebagian? Berapa?
+- Apakah dev wallet terhubung ke wallet lain? (cluster analysis)
+
+### 3. Cluster wallets
+
+Kadang satu orang punya banyak wallet untuk menyembunyikan holdings. Ini disebut **cluster** atau **sybil**.
+
+**Cara detect:**
+- Gunakan Bubblemaps — wallet yang saling terhubung akan terlihat sebagai cluster
+- Cek apakah beberapa top holders menerima token dari sumber yang sama
+- Cek apakah ada pattern transfer yang mencurigakan antar wallet
+
+### 4. Wallet umur dan aktivitas
+
+- **Wallet baru** yang langsung beli banyak → bisa jadi insider
+- **Wallet tua** dengan history diversified → biasanya lebih organik
+- Banyak wallet baru sekaligus → kemungkinan airdrop ke diri sendiri atau sybil
+
+### 5. Liquidity provider
+
+Cek siapa yang provide liquidity:
+- Apakah LP burned? (paling aman)
+- Apakah LP locked? Sampai kapan?
+- Berapa besar LP dibanding market cap?
+
+## Framework penilaian cepat
+
+### ✅ Hijau (relatif aman)
+
+- LP burned atau locked > 1 tahun
+- Top holder masing-masing < 3%
+- Ratusan/ribuan holder unik
+- Tidak ada cluster mencurigakan
+- Dev wallet sudah sell < 20% atau burned
+
+### ⚠️ Kuning (hati-hati)
+
+- LP locked < 6 bulan
+- Ada holder 3-5%
+- Jumlah holder < 500
+- Beberapa cluster terdeteksi
+- Dev masih hold signifikan tapi belum sell
+
+### 🔴 Merah (hindari)
+
+- LP tidak locked/burned
+- Ada holder > 5-10%
+- Jumlah holder < 100
+- Cluster besar terdeteksi
+- Dev wallet sangat aktif atau baru terima token dari bridge
+
+## Contoh analisis
+
+**Skenario:** Memecoin baru di Solana, market cap $500K.
+
+1. Buka Birdeye/DexScreener → cek top holders
+2. Top 1 holder: 8% supply → ❌ terlalu besar
+3. Buka Bubblemaps → top 1 terhubung ke 3 wallet lain (total 15%) → 🔴
+4. LP status: locked 30 hari → ⚠️ terlalu pendek
+5. **Verdict:** Skip. Risiko dev dump terlalu tinggi.
+
+## Tips praktis
+
+- **Jangan malas cek holder** — 5 menit analisis bisa save kamu dari loss 100%
+- **Bookmark tools** — DexScreener, Bubblemaps, block explorer
+- **Compare** — kalau kamu ragu, bandingkan dengan memecoin lain yang sudah established
+- **Over time** — cek lagi distribusi beberapa hari kemudian. Kalau top holder makin banyak sell, itu sinyal
+
+## Next step
+
+Distribusi holder sudah bisa dibaca. Selanjutnya, pelajari [kapan masuk dan kapan hindari](/memecoin/kapan-masuk-kapan-hindari) — framework untuk memutuskan apakah memecoin worth it atau tidak.
